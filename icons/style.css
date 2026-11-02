@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?47897q');
-  src:  url('fonts/icomoon.eot?47897q#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?47897q') format('truetype'),
-    url('fonts/icomoon.woff?47897q') format('woff'),
-    url('fonts/icomoon.svg?47897q#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?6obw2i');
+  src:  url('fonts/icomoon.eot?6obw2i#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?6obw2i') format('truetype'),
+    url('fonts/icomoon.woff?6obw2i') format('woff'),
+    url('fonts/icomoon.svg?6obw2i#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -58,17 +58,32 @@
 .icon-percent:before {
   content: "\e905";
 }
-.icon-arrow-left:before {
+.icon-spa:before {
   content: "\e908";
 }
-.icon-arrow-right:before {
+.icon-hand-holding-heart:before {
   content: "\e909";
+}
+.icon-lightbulb:before {
+  content: "\e90a";
+}
+.icon-users:before {
+  content: "\e90b";
+}
+.icon-envelope-open-text:before {
+  content: "\e91f";
+}
+.icon-arrow-left:before {
+  content: "\e90c";
+}
+.icon-arrow-right:before {
+  content: "\e90d";
 }
 .icon-chevron-left:before {
   content: "\e921";
 }
 .icon-chevron-right:before {
-  content: "\e90a";
+  content: "\e90e";
 }
 .icon-chevron-down:before {
   content: "\e91b";
@@ -89,7 +104,7 @@
   content: "\e918";
 }
 .icon-star:before {
-  content: "\e90d";
+  content: "\e90f";
 }
 .icon-mail:before {
   content: "\e91c";
@@ -98,26 +113,26 @@
   content: "\e91c";
 }
 .icon-facebook:before {
-  content: "\e90b";
+  content: "\e910";
 }
 .icon-youtube:before {
-  content: "\e90e";
-}
-.icon-instagram:before {
-  content: "\e90c";
-}
-.icon-linkedin:before {
-  content: "\e90f";
-}
-.icon-x:before {
-  content: "\e910";
-}
-.icon-twitter:before {
-  content: "\e910";
-}
-.icon-tiktok:before {
   content: "\e911";
 }
-.icon-play:before {
+.icon-instagram:before {
   content: "\e915";
+}
+.icon-linkedin:before {
+  content: "\e919";
+}
+.icon-x:before {
+  content: "\e91a";
+}
+.icon-twitter:before {
+  content: "\e91a";
+}
+.icon-tiktok:before {
+  content: "\e91d";
+}
+.icon-play:before {
+  content: "\e91e";
 }

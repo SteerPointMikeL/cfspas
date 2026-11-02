@@ -21,6 +21,7 @@ if ( empty($content) ) $content = '';
 				
 				<?php echo $content; ?>
 				
+				<?php get_template_part('template-parts/buttons', null, array( 'buttons' => $buttons ) ); ?>
 			</div>
 		</div>
 	</div>

@@ -63,7 +63,7 @@ function sp_load_acf_page_sections($modules) {
 				'images',
 				'content',
 			),
-		),
+		), */
 		'content_with_image_grid' => array(	
 			'file' => 'content-with-image-grid',
 			'fields' => array(
@@ -73,11 +73,10 @@ function sp_load_acf_page_sections($modules) {
 				'pre_title',
 				'title',
 				'content',
-				'images',
-				'content_after_images',
 				'buttons',
+				'grid_items',
 			),
-		), */
+		),
 		'content_with_video' => array(	
 			'file' => 'content-with-video',
 			'fields' => array(
@@ -104,18 +103,45 @@ function sp_load_acf_page_sections($modules) {
 				'columns',
 			),
 		),
-		/* 'multi_column_alternate' => array(
-			'file' => 'multi-column-alternate',
+		'multi_column_style_b' => array(
+			'file' => 'multi-column-style-b',
 			'fields' => array(
 				'appearance_modifiers',
 				'additional_css_classes',
 				'pre_title',
 				'title',
+				'button',
 				'intro_text',
 				'columns_per_row',
 				'columns',
 			),
-		), */
+		),
+		'multi_column_style_c' => array(
+			'file' => 'multi-column-style-c',
+			'fields' => array(
+				'appearance_modifiers',
+				'additional_css_classes',
+				'pre_title',
+				'title',
+				'button',
+				'intro_text',
+				'columns_per_row',
+				'columns',
+			),
+		),
+		'multi_column_style_d' => array(
+			'file' => 'multi-column-style-d',
+			'fields' => array(
+				'appearance_modifiers',
+				'additional_css_classes',
+				'pre_title',
+				'title',
+				'button',
+				'intro_text',
+				'columns_per_row',
+				'columns',
+			),
+		),
 		'welcome' => array(
 			'file' => 'welcome',
 			'fields' => array(
@@ -163,6 +189,19 @@ function sp_load_acf_page_sections($modules) {
 				'image_position',
 				'image',
 				'content',
+			),
+		),
+		'the_benefits' => array(
+			'file' => 'the-benefits',
+			'fields' => array(
+				'appearance_modifiers',
+				'additional_css_classes',
+				'pre_title',
+				'title',
+				'intro_text',
+				'button',
+				'columns_per_row',
+				'columns',
 			),
 		),
 		/* 'video_links_with_image_gallery' => array(	
@@ -222,6 +261,33 @@ function sp_load_acf_page_sections($modules) {
 				'gravityforms_form_id',
 				'show_title',
 				'show_description',
+			),
+		),
+		'blog_posts' => array(	
+			'file' => 'blog-posts',
+			'fields' => array(
+				'appearance_modifiers',
+				'additional_css_classes',
+				'pre_title',
+				'title',
+				'content',
+				'buttons',
+			),
+		),
+		'complex_resources' => array(	
+			'file' => 'complex-resources',
+			'fields' => array(
+				'appearance_modifiers',
+				'additional_css_classes',
+				'intro_title',
+				'intro_text',
+				'button',
+				'video',
+				'images',
+				'title',
+				'pre_title',
+				'content',
+				'buttons',
 			),
 		),
 		/* 'product_feature_grid' => array(

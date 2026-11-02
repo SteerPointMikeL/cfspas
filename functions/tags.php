@@ -1,10 +1,10 @@
 <?php
 
-/* function sp_the_excerpt_shorter() {
+function sp_the_excerpt_shorter() {
 	add_filter( 'excerpt_length', 'sp_excerpt_length_shorter' );
 	the_excerpt();
 	remove_filter( 'excerpt_length', 'sp_excerpt_length_shorter' );
-} */
+}
 
 
 function sp_get_the_excerpt_force_trim( $id = null ) {

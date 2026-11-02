@@ -56,7 +56,66 @@ add_action('after_setup_theme', 'sp_after_setup_theme');
 
 function sp_init() {
 	
-	// Define custom post types and taxonomies here
+	// Custom Post Type for Product
+	register_post_type( 'cfspas_product', array(
+		'labels' => array(
+			'name'               => __( 'Products', SP_TEXT_DOMAIN ),
+			'singular_name'      => __( 'Product', SP_TEXT_DOMAIN ),
+			'all_items'          => __( 'All Products', SP_TEXT_DOMAIN ),
+			'add_new_item'       => __( 'Add New Product', SP_TEXT_DOMAIN ),
+			'edit_item'          => __( 'Edit Product', SP_TEXT_DOMAIN ),
+			'new_item'           => __( 'New Product', SP_TEXT_DOMAIN ),
+			'view_item'          => __( 'View Product', SP_TEXT_DOMAIN ),
+			'search_items'       => __( 'Search Products', SP_TEXT_DOMAIN ),
+			'not_found'          => __( 'No Products Found', SP_TEXT_DOMAIN ),
+			'not_found_in_trash' => __( 'No Products Found in Trash', SP_TEXT_DOMAIN ),
+		),
+		'show_ui'   => true,
+		'public'      => true,
+		'supports'    => array('title', 'editor', 'thumbnail', 'custom-fields'),
+		'rewrite'     => array('slug' => 'product'),
+		'menu_icon' => 'dashicons-store',
+	) );
+	
+	// Custom Taxonomy "Brand" for Product Post Type
+	register_taxonomy( 'cfspas_product_brand', 'cfspas_product', array(
+		'labels' => array(
+			'name'              => _x( 'Brands', 'taxonomy general name', SP_TEXT_DOMAIN ),
+			'singular_name'     => _x( 'Brand', 'taxonomy singular name', SP_TEXT_DOMAIN ),
+			'search_items'      => __( 'Search Brands', SP_TEXT_DOMAIN ),
+			'all_items'         => __( 'All Brands', SP_TEXT_DOMAIN ),
+			'parent_item'       => __( 'Parent Brand', SP_TEXT_DOMAIN ),
+			'parent_item_colon' => __( 'Parent Brand:', SP_TEXT_DOMAIN ),
+			'edit_item'         => __( 'Edit Brand', SP_TEXT_DOMAIN ),
+			'update_item'       => __( 'Update Brand', SP_TEXT_DOMAIN ),
+			'add_new_item'      => __( 'Add New Brand', SP_TEXT_DOMAIN ),
+			'new_item_name'     => __( 'New Brand Name', SP_TEXT_DOMAIN ),
+			'menu_name'         => __( 'Brands', SP_TEXT_DOMAIN ),
+		),
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'hierarchical'      => true,
+	) );
+	
+	// Custom Taxonomy "Collection" for Product Post Type
+	register_taxonomy( 'cfspas_product_collection', 'cfspas_product', array(
+		'labels' => array(
+			'name'              => _x( 'Collections', 'taxonomy general name', SP_TEXT_DOMAIN ),
+			'singular_name'     => _x( 'Collection', 'taxonomy singular name', SP_TEXT_DOMAIN ),
+			'search_items'      => __( 'Search Collections', SP_TEXT_DOMAIN ),
+			'all_items'         => __( 'All Collections', SP_TEXT_DOMAIN ),
+			'parent_item'       => __( 'Parent Collection', SP_TEXT_DOMAIN ),
+			'parent_item_colon' => __( 'Parent Collection:', SP_TEXT_DOMAIN ),
+			'edit_item'         => __( 'Edit Collection', SP_TEXT_DOMAIN ),
+			'update_item'       => __( 'Update Collection', SP_TEXT_DOMAIN ),
+			'add_new_item'      => __( 'Add New Collection', SP_TEXT_DOMAIN ),
+			'new_item_name'     => __( 'New Collection Name', SP_TEXT_DOMAIN ),
+			'menu_name'         => __( 'Collections', SP_TEXT_DOMAIN ),
+		),
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'hierarchical'      => true,
+	) );
 	
 }
 add_action('init', 'sp_init');

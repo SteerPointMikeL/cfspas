@@ -27,14 +27,14 @@ switch ( $video['video_type'] ) {
 		break;
 }
 ?>
-		<div id="<?php echo $video_id; ?>" class="video__thumbnail_container_outer">
+		<div id="<?php echo $video_id; ?>" class="video_thumbnail_container_outer">
 			<div class="video_thumbnail_container">
 				<?php echo wp_get_attachment_image( $video['thumbnail'], 'medium', null, array( 'class' => 'thumbnail' ) ); ?>
 				
 				<i class="icon-play"></i>
+				
+				<a href="<?php echo esc_url( $href ); ?>" class="video_link full_coverage_link"><?php echo !empty($title) ? $title : '&nbsp'; ?></a>
 			</div>
-			
-			<a href="<?php echo esc_url( $href ); ?>" class="video_link full_coverage_link"><?php echo !empty($title) ? $title : '&nbsp'; ?></a>
 			
 <?php
 if ( $video['video_type'] === 'embed_code' ) {

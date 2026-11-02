@@ -11,10 +11,10 @@ function script_loader_tag_type_module_attribute($tag, $handle, $src) {
 add_filter('script_loader_tag', 'script_loader_tag_type_module_attribute' , 10, 3);
 
 
-/* function sp_excerpt_length() {
-	return 55;
+function sp_excerpt_length() {
+	return 40;
 }
-add_filter( 'excerpt_length', 'sp_excerpt_length' ); */
+add_filter( 'excerpt_length', 'sp_excerpt_length' );
 
 
 function sp_excerpt_length_shorter() {

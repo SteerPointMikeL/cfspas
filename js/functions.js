@@ -70,7 +70,7 @@
 	
 	/** Change appearance of header when page is scrolled away from top */
 	var $body = $body || $('body');
-	$(window).scroll(function() {
+	$(window).on('scroll load', function() {
 		if ($(window).scrollTop() > 150) {
 			$body.addClass('scrolled');
 		} else {

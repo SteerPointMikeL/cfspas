@@ -61,7 +61,6 @@ if ( !empty( $column['image'] ) ) {
 <?php } ?>
 				
 				<?php get_template_part( 'template-parts/buttons', null, array( 'buttons' => array( $column['button'] ) ) ); ?>
-				
 			</div></div>
 <?php endforeach; ?>
 		</div>
