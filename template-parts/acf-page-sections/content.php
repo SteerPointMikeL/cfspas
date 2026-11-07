@@ -7,7 +7,7 @@ if ( empty($content) ) $content = '';
 ?>
 <section class="layout_block content_editor <?php echo esc_attr( implode( ' ', $appearance_modifiers ) ); ?> <?php echo esc_attr( $additional_css_classes ); ?>">
 	<div class="wrap clearfix">
-		<?php get_template_part( 'template-parts/section_title', null, array( 'title' => $title ) ); ?>
+		<?php get_template_part( 'template-parts/section_title', null, array( 'pre_title' => $pre_title, 'title' => $title ) ); ?>
 		
 		<div class="content">
 			

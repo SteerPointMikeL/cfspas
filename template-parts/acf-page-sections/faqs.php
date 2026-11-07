@@ -3,20 +3,6 @@
 if ( empty($appearance_modifiers) ) $appearance_modifiers = array();
 if ( empty($additional_css_classes) ) $additional_css_classes = '';
 
-$faqs_categories_data = get_field('faqs_categories', 'option');
-
-// Get index of selected category inside entries from FAQ Options page by finding first matching instance of category name field
-$faqs_category_data_found_index = null;
-if ( is_array($faqs_categories_data) ) {
-	foreach ( $faqs_categories_data as $key => $value ) {
-		if ( $value['name'] === $faqs_category ) {
-			$faqs_category_data_found_index = $key;
-			
-			break;
-		}
-	}
-}
-
 wp_enqueue_script( 'jquery-ui-accordion' );
 
 $faqs_id = wp_unique_id('faqs_id-');
@@ -32,10 +18,10 @@ $faqs_id = wp_unique_id('faqs_id-');
 		</div>
 <?php } ?>
 		
-<?php if ( isset( $faqs_category_data_found_index) ) { ?>
+<?php if ( !empty($faqs) && is_array($faqs) && count($faqs) ) { ?>
 		<div id="<?php echo $faqs_id; ?>" class="accordion_container">
-<?php foreach ( $faqs_categories_data[$faqs_category_data_found_index]['faqs'] as $faq ) { ?>
-			<p class="ui-accordion-header question"><i class="icon-chevron-down"></i><i class="icon-chevron-up"></i> <?php echo $faq['question']; ?></p>
+<?php foreach ( $faqs as $faq ) { ?>
+			<p class="ui-accordion-header question"><i class="icon-plus-circle"></i><i class="icon-minus-circle"></i> <?php echo $faq['question']; ?></p>
 			
 			<div class="ui-accordion-content">	
 				<?php echo $faq['answer']; ?>

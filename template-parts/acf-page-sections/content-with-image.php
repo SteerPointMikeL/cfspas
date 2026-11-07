@@ -16,6 +16,12 @@ if ( empty($content) ) $content = '';
 <?php } ?>
 				
 				<?php echo wp_get_attachment_image( $image, 'medium_large', null, array('class' => 'image') ); ?>
+				
+<?php if ( !empty($image_caption) ) { ?>
+				<div class="image_caption">
+					<?php echo $image_caption; ?>
+				</div>
+<?php } ?>
 			</div>
 			
 			<div class="column column-2 column-content">

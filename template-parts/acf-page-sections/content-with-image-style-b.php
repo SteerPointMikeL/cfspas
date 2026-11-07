@@ -16,13 +16,13 @@ if ( empty($content) ) $content = '';
 				
 			</div>
 			
-			<div class="column column-2 column-content">
+			<div class="column column-2 column-content"><div class="layer_2">
 				<?php get_template_part( 'template-parts/section_title', null, array( 'pre_title' => $pre_title, 'title' => $title ) ); ?>
 				
 				<?php echo $content; ?>
 				
 				<?php get_template_part('template-parts/buttons', null, array( 'buttons' => $buttons ) ); ?>
-			</div>
+			</div></div>
 		</div>
 	</div>
 </section>

@@ -20,11 +20,11 @@ if ( empty($content) ) $content = '';
 			
 			<div class="column column-2 column-image">
 <?php if ( is_array($grid_items) && count($grid_items) ) { ?>
-				<div class="grid_items">
+				<div class="grid_items grid_items-<?php echo count( max(4, $grid_items) ); ?>">
 <?php foreach ( $grid_items as $grid_item ) { ?>
 					<div class="grid_item">
 <?php if ( $grid_item['content_type'] === 'image' ) { ?>
-						<?php echo wp_get_attachment_image( $grid_item['image'], 'medium', null, array('class' => 'image') ); ?>
+						<?php echo wp_get_attachment_image( $grid_item['image'], 'medium', null, array('class' => 'image image_fit-' . esc_attr( $grid_item['image_fit'] ) ) ); ?>
 <?php } else if ( $grid_item['content_type'] === 'link' ) { ?>		
 						<?php get_template_part('template-parts/buttons', null, array( 'buttons' => array( $grid_item['link']['button'] ), 'class' => '', 'button_text_format' => '<i class="icon-' . $grid_item['link']['icon_css_class'] . '"></i> %s') ); ?>
 <?php } ?>
