@@ -8,7 +8,7 @@ if ( empty($additional_css_classes) ) $additional_css_classes = '';
 if ( empty($columns_per_row) ) $columns_per_row = '3';
 
 ?>
-<section class="layout_block multi_column_style_e <?php echo esc_attr( implode( ' ', $appearance_modifiers ) ); ?> <?php echo esc_attr( implode( ' ', $appearance_modifiers_more ) ); ?> <?php echo esc_attr( $additional_css_classes ); ?>">
+<section class="layout_block multi_column_style_e <?php echo esc_attr( implode( ' ', array_merge( $appearance_modifiers, $appearance_modifiers_more) ) ); ?> <?php echo esc_attr( $additional_css_classes ); ?>">
 	<div class="wrap">
 		<?php get_template_part( 'template-parts/section_title', null, array( 'title' => $title ) ); ?>
 		

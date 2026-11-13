@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?fo9g22');
-  src:  url('fonts/icomoon.eot?fo9g22#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?fo9g22') format('truetype'),
-    url('fonts/icomoon.woff?fo9g22') format('woff'),
-    url('fonts/icomoon.svg?fo9g22#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?7qme82');
+  src:  url('fonts/icomoon.eot?7qme82#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?7qme82') format('truetype'),
+    url('fonts/icomoon.woff?7qme82') format('woff'),
+    url('fonts/icomoon.svg?7qme82#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -50,25 +50,31 @@
   content: "\e902";
 }
 .icon-clock:before {
+  content: "\e903";
+}
+.icon-clock-o:before {
   content: "\e917";
 }
 .icon-hot-tub:before {
-  content: "\e903";
-}
-.icon-percent:before {
   content: "\e905";
 }
-.icon-spa:before {
+.icon-percent:before {
   content: "\e908";
 }
-.icon-hand-holding-heart:before {
+.icon-spa:before {
   content: "\e909";
 }
-.icon-lightbulb:before {
+.icon-hand-holding-heart:before {
   content: "\e90a";
 }
-.icon-users:before {
+.icon-lightbulb:before {
   content: "\e90b";
+}
+.icon-lightbulb-o:before {
+  content: "\e90c";
+}
+.icon-users:before {
+  content: "\e90d";
 }
 .icon-envelope-open-text:before {
   content: "\e91f";
@@ -83,113 +89,122 @@
   content: "\e926";
 }
 .icon-user-injured:before {
-  content: "\e90c";
-}
-.icon-head-side-cough:before {
-  content: "\e90d";
-}
-.icon-bed:before {
   content: "\e90e";
 }
-.icon-head-side-virus:before {
+.icon-head-side-cough:before {
   content: "\e90f";
 }
-.icon-moon:before {
+.icon-bed:before {
   content: "\e910";
 }
-.icon-grin-hearts:before {
+.icon-head-side-virus:before {
   content: "\e911";
 }
-.icon-swimmer:before {
+.icon-moon:before {
   content: "\e912";
 }
-.icon-walking:before {
+.icon-grin-hearts:before {
   content: "\e913";
 }
-.icon-wave-square:before {
+.icon-swimmer:before {
   content: "\e914";
 }
-.icon-weight:before {
+.icon-walking:before {
   content: "\e915";
 }
-.icon-theater-masks:before {
+.icon-wave-square:before {
   content: "\e918";
 }
-.icon-heartbeat:before {
+.icon-weight:before {
   content: "\e919";
 }
-.icon-arrow-left:before {
+.icon-theater-masks:before {
   content: "\e91a";
 }
-.icon-arrow-right:before {
+.icon-heartbeat:before {
   content: "\e91b";
+}
+.icon-map-marked-alt:before {
+  content: "\e91c";
+}
+.icon-power-off:before {
+  content: "\e91d";
+}
+.icon-video:before {
+  content: "\e939";
+}
+.icon-arrow-left:before {
+  content: "\e91e";
+}
+.icon-arrow-right:before {
+  content: "\e920";
 }
 .icon-chevron-left:before {
   content: "\e921";
 }
 .icon-chevron-right:before {
-  content: "\e91c";
-}
-.icon-chevron-down:before {
-  content: "\e91d";
-}
-.icon-chevron-up:before {
-  content: "\e920";
-}
-.icon-plus-square:before {
-  content: "\e91e";
-}
-.icon-minus-square:before {
   content: "\e924";
 }
-.icon-plus-circle:before {
+.icon-chevron-down:before {
   content: "\e925";
 }
-.icon-minus-circle:before {
+.icon-chevron-up:before {
   content: "\e927";
 }
-.icon-caret-down:before {
+.icon-plus-square:before {
   content: "\e928";
 }
-.icon-caret-right:before {
+.icon-minus-square:before {
   content: "\e929";
 }
-.icon-checkmark:before {
+.icon-plus-circle:before {
   content: "\e92a";
 }
-.icon-checkmark-circle:before {
+.icon-minus-circle:before {
   content: "\e92b";
 }
-.icon-star:before {
+.icon-caret-down:before {
   content: "\e92c";
 }
-.icon-mail:before {
+.icon-caret-right:before {
   content: "\e92d";
 }
-.icon-envelope:before {
-  content: "\e92d";
-}
-.icon-facebook:before {
+.icon-checkmark:before {
   content: "\e92e";
 }
-.icon-youtube:before {
+.icon-checkmark-circle:before {
   content: "\e92f";
 }
-.icon-instagram:before {
+.icon-star:before {
   content: "\e930";
 }
-.icon-linkedin:before {
+.icon-play:before {
+  content: "\e935";
+}
+.icon-mail:before {
   content: "\e931";
 }
+.icon-envelope:before {
+  content: "\e931";
+}
+.icon-facebook:before {
+  content: "\e932";
+}
 .icon-x:before {
-  content: "\e932";
-}
-.icon-twitter:before {
-  content: "\e932";
-}
-.icon-tiktok:before {
   content: "\e933";
 }
-.icon-play:before {
+.icon-twitter:before {
+  content: "\e933";
+}
+.icon-youtube:before {
   content: "\e934";
+}
+.icon-instagram:before {
+  content: "\e936";
+}
+.icon-linkedin:before {
+  content: "\e937";
+}
+.icon-tiktok:before {
+  content: "\e938";
 }

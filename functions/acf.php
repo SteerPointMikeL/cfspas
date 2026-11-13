@@ -14,16 +14,6 @@ function sp_load_acf_page_sections($modules) {
 				'content',
 			),
 		),
-		/* 'content_with_sidebar' => array(
-			'file' => 'content-with-sidebar',
-			'fields' => array(
-				'appearance_modifiers',
-				'additional_css_classes',
-				'title',
-				'content',
-				'sidebar',
-			),
-		), */
 		'content_with_image' => array(	
 			'file' => 'content-with-image',
 			'fields' => array(
@@ -35,11 +25,12 @@ function sp_load_acf_page_sections($modules) {
 				'image_position',
 				'image',
 				'image_caption',
+				'link',
 				'content',
 				'buttons',
 			),
 		),
-		'content_with_image_full_width' => array( // todo: rename to content_with_image_style_b and migrate content to new name
+		'content_with_image_full_width' => array( // todo: rename to "content_with_image_style_b" and migrate content to new name
 			'file' => 'content-with-image-style-b',
 			'fields' => array(
 				'appearance_modifiers',
@@ -67,19 +58,21 @@ function sp_load_acf_page_sections($modules) {
 				'buttons',
 			),
 		),
-		/* 'content_with_image_slider' => array(	
-			'file' => 'content-with-image-slider',
+		'content_with_image_style_d' => array(	
+			'file' => 'content-with-image-style-d',
 			'fields' => array(
 				'appearance_modifiers',
 				'additional_css_classes',
 				'column_space_distribution',
 				'pre_title',
 				'title',
-				'image_position',
+				'images_position',
 				'images',
+				'brand_logo',
 				'content',
+				'buttons',
 			),
-		), */
+		),
 		'content_with_image_grid' => array(	
 			'file' => 'content-with-image-grid',
 			'fields' => array(
@@ -93,17 +86,32 @@ function sp_load_acf_page_sections($modules) {
 				'grid_items',
 			),
 		),
-		'content_with_video' => array(	
-			'file' => 'content-with-video',
+		'content_with_image_repeater' => array(	
+			'file' => 'content-with-image-repeater',
 			'fields' => array(
 				'appearance_modifiers',
 				'additional_css_classes',
 				'column_space_distribution',
 				'pre_title',
 				'title',
+				'intro_text',
+				'button',
+				'content_with_image_pairs',
+			),
+		),
+		'content_with_video' => array(	
+			'file' => 'content-with-video',
+			'fields' => array(
+				'appearance_modifiers',
+				'additional_css_classes',
+				'appearance_modifiers_more',
+				'column_space_distribution',
+				'pre_title',
+				'title',
 				'media_position',
 				'video',
 				'content',
+				'show_play_video_button',
 			),
 		),
 		'multi_column' => array(
@@ -111,6 +119,7 @@ function sp_load_acf_page_sections($modules) {
 			'fields' => array(
 				'appearance_modifiers',
 				'additional_css_classes',
+				'appearance_modifiers_more',
 				'image_lightbox_support',
 				'pre_title',
 				'title',
@@ -162,14 +171,27 @@ function sp_load_acf_page_sections($modules) {
 			'file' => 'multi-column-style-e',
 			'fields' => array(
 				'appearance_modifiers',
-				'appearance_modifiers_more',
 				'additional_css_classes',
+				'appearance_modifiers_more',
 				'pre_title',
 				'title',
 				'intro_text',
 				'columns_per_row',
 				'columns',
 				'buttons',
+			),
+		),
+		'multi_column_style_f' => array(
+			'file' => 'multi-column-style-f',
+			'fields' => array(
+				'appearance_modifiers',
+				'additional_css_classes',
+				'appearance_modifiers_more',
+				'pre_title',
+				'title',
+				'intro_text',
+				'columns_per_row',
+				'columns',
 			),
 		),
 		'image_gallery' => array(
@@ -207,24 +229,35 @@ function sp_load_acf_page_sections($modules) {
 				'columns',
 			),
 		),
-		'dealerships' => array(
-			'file' => 'dealerships',
-			'fields' => array(
-				'appearance_modifiers',
-				'additional_css_classes',
-				'image_lightbox_support',
-				'pre_title',
-				'title',
-				'intro_text',
-				'columns_per_row',
-				'columns',
-			),
-		),
 		'brands' => array(
 			'file' => 'brands',
 			'fields' => array(
 				'appearance_modifiers',
 				'additional_css_classes',
+				'pre_title',
+				'title',
+				'intro_text',
+				'columns_per_row',
+				'columns',
+			),
+		),
+		'brands_style_b' => array(
+			'file' => 'brands-style-b',
+			'fields' => array(
+				'appearance_modifiers',
+				'additional_css_classes',
+				'pre_title',
+				'title',
+				'intro_text',
+				'columns_per_row',
+				'columns',
+			),
+		),
+		'dealerships' => array( // to-do: rename to "locations" and migrate content to new name
+			'file' => 'locations',
+			'fields' => array(
+				'appearance_modifiers',
+				'additional_css_classes',
 				'image_lightbox_support',
 				'pre_title',
 				'title',
@@ -233,17 +266,19 @@ function sp_load_acf_page_sections($modules) {
 				'columns',
 			),
 		),
-		/* 'icon_bar' => array(
-			'file' => 'icon-bar',
+		'locations_style_b' => array(
+			'file' => 'locations-style-b',
 			'fields' => array(
 				'appearance_modifiers',
 				'additional_css_classes',
+				'pre_title',
 				'title',
 				'intro_text',
 				'columns_per_row',
 				'columns',
+				'social_media_icons',
 			),
-		), */
+		),
 		'interstitial_section' => array(	
 			'file' => 'interstitial-section',
 			'fields' => array(
@@ -282,19 +317,7 @@ function sp_load_acf_page_sections($modules) {
 				'columns',
 			),
 		),
-		/* 'video_links_with_image_gallery' => array(	
-			'file' => 'video-links-with-image-gallery',
-			'fields' => array(
-				'appearance_modifiers',
-				'additional_css_classes',
-				'column_space_distribution',
-				'title',
-				'gallery_position',
-				'images',
-				'content',
-				'video_links',
-			),
-		), */
+		
 		'video_grid' => array(
 			'file' => 'video-grid',
 			'fields' => array(
@@ -305,19 +328,9 @@ function sp_load_acf_page_sections($modules) {
 				'intro_text',
 				'columns_per_row',
 				'videos',
+				'buttons',
 			),
 		),
-		/* 'faqs_site_wide' => array(
-			'file' => 'faqs-site-wide',
-			'fields' => array(
-				'appearance_modifiers',
-				'additional_css_classes',
-				'pre_title',
-				'title',
-				'intro_text',
-				'faqs_category',
-			),
-		), */
 		'faqs' => array(
 			'file' => 'faqs',
 			'fields' => array(
@@ -327,6 +340,32 @@ function sp_load_acf_page_sections($modules) {
 				'title',
 				'intro_text',
 				'faqs',
+			),
+		),
+		'documents' => array(
+			'file' => 'documents',
+			'fields' => array(
+				'appearance_modifiers',
+				'additional_css_classes',
+				'columns_per_row',
+				'pre_title',
+				'title',
+				'intro_text',
+				'buttons',
+			),
+		),
+		'contact_information' => array(
+			'file' => 'contact-information',
+			'fields' => array(
+				'appearance_modifiers',
+				'appearance_modifiers_more',
+				'additional_css_classes',
+				'pre_title',
+				'title',
+				'intro_text',
+				'columns_per_row',
+				'columns',
+				'social_media_icons',
 			),
 		),
 		'contact_form' => array(
@@ -382,53 +421,6 @@ function sp_load_acf_page_sections($modules) {
 				'buttons',
 			),
 		),
-		/* 'product_feature_grid' => array(
-			'file' => 'product-feature-grid',
-			'fields' => array(
-				'appearance_modifiers',
-				'additional_css_classes',
-				'title',
-				'intro_text',
-				'columns_per_row',
-				'products',
-				'buttons',
-			),
-		),
-		'accessories' => array(
-			'file' => 'accessories',
-			'fields' => array(
-				'appearance_modifiers',
-				'additional_css_classes',
-				'title',
-				'intro_text',
-				'columns_per_row',
-				'accessories',
-				'buttons',
-			),
-		),
-		'gameplay_rules' => array(
-			'file' => 'gameplay-rules',
-			'fields' => array(
-				'appearance_modifiers',
-				'additional_css_classes',
-				'columns_per_row',
-				'title',
-				'columns',
-				'content',
-				'buttons',
-			),
-		),
-		'package_comparison_grid' => array(
-			'file' => 'package-comparison-grid',
-			'fields' => array(
-				'appearance_modifiers',
-				'additional_css_classes',
-				'title',
-				'intro_text',
-				'columns_per_row',
-				'packages',
-			),
-		), */
 	);
 	
 	foreach ( $modules as $module ) {

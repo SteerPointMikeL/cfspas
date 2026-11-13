@@ -56,7 +56,7 @@ if ( !empty( $column['button']['link_type'] ) ) {
 
 if ( !empty($href) ) {
 ?>
-				<a href="<?php echo esc_url( $href ); ?>" class="full_coverage_link"><?php echo $button['button_text'] ?: '&nbsp;' ?></a>
+				<a href="<?php echo esc_url( $href ); ?>" class="full_coverage_link"><?php echo $column['button']['button_text'] ?: '&nbsp;' ?></a>
 <?php } ?>
 			</div>
 <?php endforeach; ?>

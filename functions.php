@@ -15,13 +15,6 @@ if (
 	require_once( get_template_directory() . '/functions/acf.php' );
 }
 
-if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option('active_plugins') ) ) ) {
-	require_once( get_template_directory() . '/functions/woocommerce.php' );
-} else if ( !function_exists( 'is_shop' ) ) {
-	function is_shop() {}
-}
-
-
 function sp_after_setup_theme() {
 	
 	// Make theme available for translation
@@ -77,6 +70,26 @@ function sp_init() {
 		'menu_icon' => 'dashicons-store',
 	) );
 	
+	// Custom Taxonomy "Type" for Product Post Type
+	register_taxonomy( 'cfspas_product_type', 'cfspas_product', array(
+		'labels' => array(
+			'name'              => _x( 'Types', 'taxonomy general name', SP_TEXT_DOMAIN ),
+			'singular_name'     => _x( 'Type', 'taxonomy singular name', SP_TEXT_DOMAIN ),
+			'search_items'      => __( 'Search Types', SP_TEXT_DOMAIN ),
+			'all_items'         => __( 'All Types', SP_TEXT_DOMAIN ),
+			'parent_item'       => __( 'Parent Type', SP_TEXT_DOMAIN ),
+			'parent_item_colon' => __( 'Parent Type:', SP_TEXT_DOMAIN ),
+			'edit_item'         => __( 'Edit Type', SP_TEXT_DOMAIN ),
+			'update_item'       => __( 'Update Type', SP_TEXT_DOMAIN ),
+			'add_new_item'      => __( 'Add New Type', SP_TEXT_DOMAIN ),
+			'new_item_name'     => __( 'New Type Name', SP_TEXT_DOMAIN ),
+			'menu_name'         => __( 'Types', SP_TEXT_DOMAIN ),
+		),
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'hierarchical'      => true,
+	) );
+	
 	// Custom Taxonomy "Brand" for Product Post Type
 	register_taxonomy( 'cfspas_product_brand', 'cfspas_product', array(
 		'labels' => array(
@@ -111,6 +124,46 @@ function sp_init() {
 			'add_new_item'      => __( 'Add New Collection', SP_TEXT_DOMAIN ),
 			'new_item_name'     => __( 'New Collection Name', SP_TEXT_DOMAIN ),
 			'menu_name'         => __( 'Collections', SP_TEXT_DOMAIN ),
+		),
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'hierarchical'      => true,
+	) );
+	
+	
+	// Custom Post Type for Document
+	register_post_type( 'cfspas_document', array(
+		'labels' => array(
+			'name'               => __( 'Documents', SP_TEXT_DOMAIN ),
+			'singular_name'      => __( 'Document', SP_TEXT_DOMAIN ),
+			'all_items'          => __( 'All Documents', SP_TEXT_DOMAIN ),
+			'add_new_item'       => __( 'Add New Document', SP_TEXT_DOMAIN ),
+			'edit_item'          => __( 'Edit Document', SP_TEXT_DOMAIN ),
+			'new_item'           => __( 'New Document', SP_TEXT_DOMAIN ),
+			'view_item'          => __( 'View Document', SP_TEXT_DOMAIN ),
+			'search_items'       => __( 'Search Documents', SP_TEXT_DOMAIN ),
+			'not_found'          => __( 'No Documents Found', SP_TEXT_DOMAIN ),
+			'not_found_in_trash' => __( 'No Documents Found in Trash', SP_TEXT_DOMAIN ),
+		),
+		'show_ui'   => true,
+		'supports'    => array('title', 'custom-fields'),
+		'menu_icon' => 'dashicons-text-page',
+	) );
+	
+	// Custom Taxonomy "Brand" for Document Post Type
+	register_taxonomy( 'cfspas_document_brand', 'cfspas_document', array(
+		'labels' => array(
+			'name'              => _x( 'Brands', 'taxonomy general name', SP_TEXT_DOMAIN ),
+			'singular_name'     => _x( 'Brand', 'taxonomy singular name', SP_TEXT_DOMAIN ),
+			'search_items'      => __( 'Search Brands', SP_TEXT_DOMAIN ),
+			'all_items'         => __( 'All Brands', SP_TEXT_DOMAIN ),
+			'parent_item'       => __( 'Parent Brand', SP_TEXT_DOMAIN ),
+			'parent_item_colon' => __( 'Parent Brand:', SP_TEXT_DOMAIN ),
+			'edit_item'         => __( 'Edit Brand', SP_TEXT_DOMAIN ),
+			'update_item'       => __( 'Update Brand', SP_TEXT_DOMAIN ),
+			'add_new_item'      => __( 'Add New Brand', SP_TEXT_DOMAIN ),
+			'new_item_name'     => __( 'New Brand Name', SP_TEXT_DOMAIN ),
+			'menu_name'         => __( 'Brands', SP_TEXT_DOMAIN ),
 		),
 		'show_ui'           => true,
 		'show_admin_column' => true,

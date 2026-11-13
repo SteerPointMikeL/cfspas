@@ -1,12 +1,12 @@
 {
-    "key": "ui_options_page_6aa9a1166a438",
-    "title": "FAQs",
+    "key": "ui_options_page_6af4d518cd56e",
+    "title": "Site-Wide",
     "active": true,
     "menu_order": 0,
-    "page_title": "FAQs",
-    "menu_slug": "faqs",
+    "page_title": "Site-Wide",
+    "menu_slug": "site-wide",
     "parent_slug": "none",
-    "advanced_configuration": 1,
+    "advanced_configuration": 0,
     "icon_url": "",
     "menu_title": "",
     "position": "",
@@ -14,7 +14,7 @@
     "description": "",
     "menu_icon": {
         "type": "dashicons",
-        "value": "dashicons-editor-help"
+        "value": "dashicons-admin-generic"
     },
     "update_button": "Update",
     "updated_message": "Options Updated",
@@ -22,5 +22,5 @@
     "data_storage": "options",
     "post_id": "",
     "autoload": 0,
-    "modified": 1789501833
+    "modified": 1794430244
 }

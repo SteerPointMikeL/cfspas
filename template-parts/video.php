@@ -15,11 +15,18 @@ switch ( $video['video_type'] ) {
 		$href = $video['file'];
 		
 		break;
-	case 'url' : 
+	case 'url' :
 		$href = $video['url'];
 		
 		break;
-	case 'embed_code' : 
+	case 'embed_code' :
+		if ( str_contains( $video['embed_code'], 'lite-youtube' ) )  {
+			wp_enqueue_style('lite-youtube-embed');
+			wp_enqueue_script('lite-youtube-embed');
+		} else if ( str_contains($video['embed_code'], 'lite-vimeo' ) ) {
+			wp_enqueue_script('lite-vimeo');
+		}
+		
 		$glightbox_iframe_id = wp_unique_id('glightbox_iframe-');
 		
 		$href = '#' . $glightbox_iframe_id;
@@ -29,20 +36,29 @@ switch ( $video['video_type'] ) {
 ?>
 		<div id="<?php echo $video_id; ?>" class="video_thumbnail_container_outer">
 			<div class="video_thumbnail_container">
-				<?php echo wp_get_attachment_image( $video['thumbnail'], 'medium', null, array( 'class' => 'thumbnail' ) ); ?>
+<?php
+// manual thumbnail
+$thumbnail = wp_get_attachment_image( $video['thumbnail'], 'medium', null, array( 'class' => 'thumbnail' ) );
+if ( $thumbnail ) {
+?>
+				<?php echo $thumbnail; ?>
+<?php
+// vimeo thumbnail
+} else if ( $video['video_type'] === 'url' && parse_url( trim($href), PHP_URL_HOST ) === 'vimeo.com' ) {
+	if ( preg_match( '#(?:https?://)?(?:www\.)?(?:player\.)?vimeo\.com/(?:[a-z]*/)*([0-9]{6,11})[?]?.*#i', $href, $vimeo_id ) ) {
+?>
+				<img src="https://vumbnail.com/<?php echo $vimeo_id[1]; ?>.jpg" alt="" class="thumbnail" />
+<?php
+	}
+}
+?>
 				
 				<i class="icon-play"></i>
 				
-				<a href="<?php echo esc_url( $href ); ?>" class="video_link full_coverage_link"><?php echo !empty($title) ? $title : '&nbsp'; ?></a>
+				<a href="<?php echo esc_url( $href ); ?>" class="full_coverage_link video_link"><?php echo !empty($title) ? $title : '&nbsp'; ?></a>
 			</div>
 			
-<?php
-if ( $video['video_type'] === 'embed_code' ) {
-	if ( str_contains( $video['embed_code'], 'lite-youtube' ) )  {
-		wp_enqueue_style('lite-youtube-embed');
-		wp_enqueue_script('lite-youtube-embed');
-	}
-?>
+<?php if ( $video['video_type'] === 'embed_code' ) { ?>
 			<div id="<?php echo $glightbox_iframe_id; ?>" style="display: none;">
 				<?php echo $video['embed_code']; ?>
 			</div>

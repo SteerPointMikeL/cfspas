@@ -1,6 +1,7 @@
 <?php
 
 if ( empty($appearance_modifiers) ) $appearance_modifiers = array();
+if ( empty($appearance_modifiers_more) ) $appearance_modifiers_more = array();
 if ( empty($additional_css_classes) ) $additional_css_classes = '';
 
 if ( empty($show_title) ) {
@@ -16,7 +17,7 @@ if ( empty($show_description) ) {
 }
 
 ?>
-<section class="layout_block contact_form_style_b <?php echo esc_attr( implode( ' ', $appearance_modifiers ) ); ?> <?php echo esc_attr( $additional_css_classes ); ?>">
+<section class="layout_block contact_form_style_b <?php echo esc_attr( implode( ' ', $appearance_modifiers ) ); ?> <?php echo esc_attr( implode( ' ', $appearance_modifiers_more ) ); ?> <?php echo esc_attr( $additional_css_classes ); ?>">
 	<div class="wrap"><div class="layer_2"><div class="layer_3">
 		<?php get_template_part( 'template-parts/section_title', null, array( 'pre_title' => $pre_title, 'title' => $title ) ); ?>
 		

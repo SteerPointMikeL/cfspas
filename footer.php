@@ -1,63 +1,32 @@
+<?php
+
+$locations = get_field( 'locations', 'option');
+$social_media_links = get_field( 'social_media_links', 'option');
+
+?>
 <footer id="footer">
 	<div class="wrap">
+<?php if ( !empty($locations) && is_array($locations) && count($locations) ) { ?>
 		<div class="columns columns-3 columns-top_level columns-contact_information">
+<?php foreach ( $locations as $location ) : ?>
 			<div class="column">
-				<div class="title">Jacuzzi&reg; Dealership</div>
-				
+<?php if ( !empty( $location['title'] ) ) { ?>
+				<p class="title"><?php echo $location['title']; ?></p>
+<?php } ?>
+
+<?php if ( !empty( $location['contact_information'] ) && is_array( $location['contact_information'] ) && count( $location['contact_information'] ) ) { ?>
 				<ul class="contact_information">
-					<li><i class="icon-map-marker"></i> <a href="https://maps.app.goo.gl/4FKzhDFXNuAMudaY9" target="_blank">9529 Corporation Dr. Indianapolis, IN 46256</a></li>
-					<li><i class="icon-phone"></i> <a href="tel:+1-317-849-7727">317-849-7727 EXT #3</a></li>
-					<li>
-						<i class="icon-clock"></i>
-						
-						M, T, Th, F: 10 AM - 7 PM<br />
-						Wed: 10 AM - 6 PM<br />
-						Sat: 10 AM - 5 PM<br />
-						*Late Evenings/Sundays Appt. Only
-					</li>
+<?php foreach ( $location['contact_information'] as $c ) { ?>
+					<li><i class="icon-<?php echo esc_attr( $c['icon_css_class'] ); ?>"></i> <?php echo $c['content']; ?></li>
+<?php } ?>
 				</ul>
+<?php } ?>
 				
-				<a href="https://cfspas.com/locations/jacuzzi-dealership/" class="link">View Location</a>
+				<?php get_template_part( 'template-parts/buttons', null, array( 'buttons' => array( $location['button'] ) ) ); ?>
 			</div>
-			
-			<div class="column">
-				<div class="title">HotSpring Dealership</div>
-				
-				<ul class="contact_information">
-					<li><i class="icon-map-marker"></i> <a href="https://maps.app.goo.gl/sfnnG57sSBo3hxwB9" target="_blank">9133 Pendleton Pike Indianapolis, IN 46236</a></li>
-					<li><i class="icon-phone"></i> <a href="tel:+1-317-869-0549">317-869-0549 EXT #2</a></li>
-					<li>
-						<i class="icon-clock"></i>
-						
-						M, T, Th, F: 10 AM - 7 PM<br />
-						Wed: 10 AM - 6 PM<br />
-						Sat: 10 AM - 5 PM<br />
-						*Late Evenings/Sundays Appt. Only
-					</li>
-				</ul>
-				
-				<a href="/locations/hotspring-dealership/" class="link">View Location</a>
-			</div>
-			
-			<div class="column">
-				<div class="title">Caldera Spas and Clearance Center</div>
-				
-				<ul class="contact_information">
-					<li><i class="icon-map-marker"></i> <a href="https://maps.app.goo.gl/4cnkb43qhexRLwcS7" target="_blank">10710 Pendleton Pike Indianapolis, IN 46236</a></li>
-					<li><i class="icon-phone"></i> <a href="tel:+1-317-826-8200">317-826-8200 EXT #1</a></li>
-					<li>
-						<i class="icon-clock"></i>
-						
-						M, T, Th, F: 10 AM - 7 PM<br />
-						Wed: 10 AM - 6 PM<br />
-						Sat: 10 AM - 5 PM<br />
-						*Late Evenings/Sundays Appt. Only
-					</li>
-				</ul>
-				
-				<a href="/locations/sundance-dealership/" class="link">View Location</a>
-			</div>
+<?php endforeach; ?>
 		</div>
+<?php } ?>
 		
 		<div class="columns columns-4 columns-top_level columns-main_columns">
 			<div class="column column-1"><div class="layer_2">
@@ -65,10 +34,14 @@
 				
 				<p>Relaxation Made Easy Since 1988.</p>
 				
+				
+<?php if ( !empty($social_media_links) && is_array($social_media_links) && count($social_media_links) ) { ?>
 				<ul class="social_media">
-					<li><a href="https://www.facebook.com/carefreespasindy" title="Facebook" target="_blank" ><i class="icon-facebook"></i></a></li>
-					<li><a href="https://x.com/CarefreeSpasInc" title="X (Twitter)" target="_blank" ><i class="icon-x"></i></a></li>
+<?php foreach ( $social_media_links as $link ) { ?>
+					<li><a href="<?php echo esc_url( $link['url'] ); ?>" target="_blank" title="<?php echo esc_attr( $link['name'] ); ?>"><i class="icon-<?php echo esc_attr( $link['icon'] ); ?>"></i></a></li>
+<?php } ?>
 				</ul>
+<?php } ?>
 			</div></div>
 			
 			<div class="column"><div class="layer_2">
@@ -111,8 +84,6 @@
 <!-- wp_footer() -->
 <?php wp_footer(); ?>
 <!-- end wp_footer() -->
-
-<?php //get_template_part('template-parts/structured_data'); ?>
 	
 </body>
 </html>
