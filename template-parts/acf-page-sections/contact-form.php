@@ -32,7 +32,7 @@ if ( empty($show_description) ) {
 			<div class="column column-form">
 				<div class="form_container">
 <?php if ( !empty($gravityforms_form_id) ) { ?>
-					<?php echo do_shortcode('[gravityforms id="' . $gravityforms_form_id . '" title="' . $show_title . '" description="' . $show_description . '" ajax=true]'); ?>
+					<?php echo do_shortcode('[gravityforms id="' . $gravityforms_form_id . '" title="' . $show_title . '" description="' . $show_description . '" ajax=true' . ( !empty($field_values) ? ' field_values="' . esc_attr( $field_values ) . '"' : '' ) . ']'); ?>
 <?php } ?>
 				</div>
 			</div>
