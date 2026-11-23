@@ -1,0 +1,339 @@
+{
+    "key": "group_6b30a61fa2fc2",
+    "title": "Specifications: Hot Tubs, Swim Spas & Pre-Owned Spas",
+    "fields": [
+        {
+            "key": "field_6b30f8987cd48",
+            "label": "Dimensions (Imperial)",
+            "name": "dimensions_imperial",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "9' x 7'7\" x 38\"",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6b36793cb405b",
+            "label": "Dimensions (Metric)",
+            "name": "dimensions_metric",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "274 cm x 231 cm x 97 cm",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6b3609544a713",
+            "label": "Seats (Adults)",
+            "name": "seats",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 0,
+            "max": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6b3ff846931e6",
+            "label": "Seating Type",
+            "name": "seating_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Lounge Seating": "Lounge Seating",
+                "Open Seating": "Open Seating"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 1,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_6b331a1910d21",
+            "label": "Jets",
+            "name": "jets",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 0,
+            "max": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6b304dcc601c5",
+            "label": "Volume (gal)",
+            "name": "volume_gal",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 0,
+            "max": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "gal"
+        },
+        {
+            "key": "field_6b3ac1ca5d1fa",
+            "label": "Volume (L)",
+            "name": "volume_l",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 0,
+            "max": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "L"
+        },
+        {
+            "key": "field_6b3daa7bbe61a",
+            "label": "Weight Filled (lbs)",
+            "name": "weight_filled_lbs",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 0,
+            "max": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "lbs"
+        },
+        {
+            "key": "field_6b3dc8540118d",
+            "label": "Weight Filled (kg)",
+            "name": "weight_filled_kg",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 0,
+            "max": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "kg"
+        },
+        {
+            "key": "field_6b3f6c3d8a867",
+            "label": "Weight Dry (lbs)",
+            "name": "weight_dry_lbs",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 0,
+            "max": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "lbs"
+        },
+        {
+            "key": "field_6b3c1a249ad35",
+            "label": "Weight Dry (kg)",
+            "name": "weight_dry_kg",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 0,
+            "max": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "kg"
+        },
+        {
+            "key": "field_6b3444e38e192",
+            "label": "Water Management System",
+            "name": "water_management",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "FreshWater® IQ System",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6b376e7ca7613",
+            "label": "Electrical",
+            "name": "electrical",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "230v\/50 amp",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_taxonomy",
+                "operator": "==",
+                "value": "cfspas_product_type:hot-tubs"
+            }
+        ],
+        [
+            {
+                "param": "post_taxonomy",
+                "operator": "==",
+                "value": "cfspas_product_type:swim-spas"
+            }
+        ],
+        [
+            {
+                "param": "post_taxonomy",
+                "operator": "==",
+                "value": "cfspas_product_type:pre-owned-spas"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Shown when the product's Type is Hot Tubs, Swim Spas or Pre-Owned Spas.",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": 1,
+    "ai_description": "",
+    "modified": 1794589417
+}

@@ -405,6 +405,26 @@ function sp_load_acf_page_sections($modules) {
 				'buttons',
 			),
 		),
+		'product_grid' => array(
+			'file' => 'product-grid',
+			'fields' => array(
+				'appearance_modifiers',
+				'additional_css_classes',
+				'columns_per_row',
+				'pre_title',
+				'title',
+				'intro_text',
+				'product_types',
+				'product_brands',
+				'product_collections',
+				'specific_products',
+				'number_of_products',
+				'order_by',
+				'filter_by',
+				'card_button_text',
+				'buttons',
+			),
+		),
 		'complex_resources' => array(	
 			'file' => 'complex-resources',
 			'fields' => array(
@@ -484,12 +504,12 @@ add_filter('acf/load_field/name=faqs_category', function( $field ) {
 
 
 // Populate ACF contact form dropdown fields with Gravity Forms forms
-add_filter('acf/load_field/name=gravityforms_form_id', function($field) {
+function sp_acf_load_gravityforms_choices($field) {
 	// clear them out
 	$field['choices'] = array();
 	
 	// bail
-	if ( !is_plugin_active('gravityforms/gravityforms.php') || !class_exists('GFAPI') ) {  
+	if ( !class_exists('GFAPI') ) { // (is_plugin_active() isn't loaded on the front end, where get_field() also runs this filter)
 		return $field;
 	}
 	
@@ -511,7 +531,9 @@ add_filter('acf/load_field/name=gravityforms_form_id', function($field) {
 	}
 	
 	return $field;
-} );
+}
+add_filter('acf/load_field/name=gravityforms_form_id', 'sp_acf_load_gravityforms_choices');
+add_filter('acf/load_field/name=product_contact_form', 'sp_acf_load_gravityforms_choices');
 
 
 // Populate ACF sidebar fields with available sidebars

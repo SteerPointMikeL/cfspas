@@ -1,0 +1,133 @@
+{
+    "key": "group_6b36a2c4d8ac3",
+    "title": "Specifications: Massage Chairs",
+    "fields": [
+        {
+            "key": "field_6b32367a2664f",
+            "label": "Upright Dimensions",
+            "name": "upright_dimensions",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "66\" x 33\" x 47\"",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6b37644dea5db",
+            "label": "Reclined Dimensions",
+            "name": "reclined_dimensions",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "76\" x 33\" x 38.5\"",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6b309114647ca",
+            "label": "Chair Weight",
+            "name": "chair_weight",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "265 lbs",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6b363871086b7",
+            "label": "Color",
+            "name": "color",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6b3b407c28bb2",
+            "label": "Electrical",
+            "name": "electrical",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "110VAC 60Hz 15A",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_taxonomy",
+                "operator": "==",
+                "value": "cfspas_product_type:massage-chairs"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Shown when the product's Type is Massage Chairs.",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": 1,
+    "ai_description": "",
+    "modified": 1794589417
+}

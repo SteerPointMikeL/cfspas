@@ -4,6 +4,7 @@ define('SP_TEXT_DOMAIN', 'cfspas');
 
 require_once( get_template_directory() . '/functions/filters.php' );
 require_once( get_template_directory() . '/functions/shortcodes.php' );
+require_once( get_template_directory() . '/functions/products.php' );
 require_once( get_template_directory() . '/functions/tags.php' );
 require_once( get_template_directory() . '/functions/class-wp-widget-recent-posts-with-thumbnails.php' );
 require_once( get_template_directory() . '/functions/walker_nav_menu_large_with_thumbnails.php' );
@@ -21,7 +22,7 @@ function sp_after_setup_theme() {
 	load_theme_textdomain( SP_TEXT_DOMAIN, get_template_directory() . '/languages' );
 	
 	// Featured Images
-	add_theme_support( 'post-thumbnails', array('post') );
+	add_theme_support( 'post-thumbnails', array('post', 'cfspas_product', 'cfspas_feature') );
 	add_image_size( 'sp_medium_less_large', 500, 500 );
 	
 	// HTML5 markup
@@ -65,7 +66,7 @@ function sp_init() {
 		),
 		'show_ui'   => true,
 		'public'      => true,
-		'supports'    => array('title', 'editor', 'thumbnail', 'custom-fields'),
+		'supports'    => array('title', 'editor', 'thumbnail', 'custom-fields', 'page-attributes'),
 		'rewrite'     => array('slug' => 'product'),
 		'menu_icon' => 'dashicons-store',
 	) );
@@ -91,7 +92,7 @@ function sp_init() {
 	) );
 	
 	// Custom Taxonomy "Brand" for Product Post Type
-	register_taxonomy( 'cfspas_product_brand', 'cfspas_product', array(
+	register_taxonomy( 'cfspas_product_brand', array('cfspas_product', 'cfspas_feature'), array(
 		'labels' => array(
 			'name'              => _x( 'Brands', 'taxonomy general name', SP_TEXT_DOMAIN ),
 			'singular_name'     => _x( 'Brand', 'taxonomy singular name', SP_TEXT_DOMAIN ),
@@ -111,7 +112,7 @@ function sp_init() {
 	) );
 	
 	// Custom Taxonomy "Collection" for Product Post Type
-	register_taxonomy( 'cfspas_product_collection', 'cfspas_product', array(
+	register_taxonomy( 'cfspas_product_collection', array('cfspas_product', 'cfspas_feature'), array(
 		'labels' => array(
 			'name'              => _x( 'Collections', 'taxonomy general name', SP_TEXT_DOMAIN ),
 			'singular_name'     => _x( 'Collection', 'taxonomy singular name', SP_TEXT_DOMAIN ),
@@ -128,6 +129,27 @@ function sp_init() {
 		'show_ui'           => true,
 		'show_admin_column' => true,
 		'hierarchical'      => true,
+	) );
+	
+	
+	// Custom Post Type for Product Feature (shown on single product pages, e.g. "FreshWater® IQ System")
+	register_post_type( 'cfspas_feature', array(
+		'labels' => array(
+			'name'               => __( 'Product Features', SP_TEXT_DOMAIN ),
+			'singular_name'      => __( 'Product Feature', SP_TEXT_DOMAIN ),
+			'all_items'          => __( 'Features', SP_TEXT_DOMAIN ),
+			'add_new_item'       => __( 'Add New Feature', SP_TEXT_DOMAIN ),
+			'edit_item'          => __( 'Edit Feature', SP_TEXT_DOMAIN ),
+			'new_item'           => __( 'New Feature', SP_TEXT_DOMAIN ),
+			'view_item'          => __( 'View Feature', SP_TEXT_DOMAIN ),
+			'search_items'       => __( 'Search Features', SP_TEXT_DOMAIN ),
+			'not_found'          => __( 'No Features Found', SP_TEXT_DOMAIN ),
+			'not_found_in_trash' => __( 'No Features Found in Trash', SP_TEXT_DOMAIN ),
+		),
+		'show_ui'      => true,
+		'show_in_menu' => 'edit.php?post_type=cfspas_product',
+		'supports'     => array('title', 'editor', 'thumbnail'),
+		'taxonomies'   => array('cfspas_product_brand', 'cfspas_product_collection'), // for organizing/filtering only
 	) );
 	
 	
