@@ -10,7 +10,7 @@ if ( empty($columns_per_row) ) $columns_per_row = '2';
 	
 	<div class="wrap">
 		<div class="columns columns-2 columns-top_level">
-			<div class="column column-intro"><div class="layer_2">
+			<div class="column column-intro wow fadeInLeft"><div class="layer_2">
 				<?php get_template_part( 'template-parts/section_title', null, array( 'pre_title' => $pre_title, 'title' => $title ) ); ?>
 				
 <?php if ( !empty($intro_text) ) { ?>

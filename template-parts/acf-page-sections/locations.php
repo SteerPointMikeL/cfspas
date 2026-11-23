@@ -9,18 +9,25 @@ $locations = get_field( 'locations', 'option');
 ?>
 <section class="layout_block locations <?php echo esc_attr( implode( ' ', $appearance_modifiers ) ); ?> <?php echo esc_attr( $additional_css_classes ); ?>">
 	<div class="wrap">
-		<?php get_template_part( 'template-parts/section_title', null, array( 'pre_title' => $pre_title, 'title' => $title ) ); ?>
+		<?php
+		get_template_part( 'template-parts/section_title', null, array(
+			'pre_title'           => $pre_title,
+			'pre_title_animation' => 'fadeInRight',
+			'title'               => $title,
+			'title_animation'     => 'fadeInLeft'),
+		);
+		?>
 		
 <?php if ( !empty($intro_text) ) { ?>
-		<div class="intro_text">
+		<div class="intro_text wow fadeInUpSmall">
 			<?php echo $intro_text; ?>	
 		</div>
 <?php } ?>
 		
 <?php if ( !empty($locations) && is_array($locations) && count($locations) ) { ?>
 		<div class="columns columns-<?php echo $columns_per_row; ?> columns-top_level">
-<?php foreach ( $locations as $location ) : ?>
-			<div class="column">
+<?php foreach ( $locations as $i => $location ) : ?>
+			<div class="column wow fadeInUpSmall" data-wow-delay="<?php echo $i * 150; ?>ms">
 				<?php echo wp_get_attachment_image( $location['title_image'], 'medium', null, array('alt' => $location['title'], 'class' => 'title_image') ); ?>
 				
 <?php if ( !empty( $location['title'] ) ) { ?>

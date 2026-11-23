@@ -19,11 +19,13 @@ if ( empty($columns_per_row) ) $columns_per_row = '2';
 <?php } ?>
 		
 		<div class="columns columns-<?php echo $columns_per_row; ?> columns-top_level">
-<?php foreach ( $columns as $column ) : ?>
-			<div class="column"><div class="layer_2">
+<?php foreach ( $columns as $i => $column ) : ?>
+			<div class="column wow fadeInUpSmall" data-wow-delay="<?php echo $i * 150; ?>ms"><div class="layer_2">
+<?php if ( !empty( $column['image'] ) ) { ?>
 				<div class="image_container">
 					<?php echo wp_get_attachment_image( $column['image'], 'medium', null, array('class' => 'image') ); ?>
 				</div>
+<?php } ?>
 				
 <?php if ( !empty( $column['title'] ) ) { ?>
 				<p class="title"><?php echo $column['title']; ?></p>
@@ -41,5 +43,12 @@ if ( empty($columns_per_row) ) $columns_per_row = '2';
 			</div></div>
 <?php endforeach; ?>
 		</div>
+		
+<?php if ( !empty($after_columns_text) ) { ?>
+		<div class="after_columns_text">
+			<?php echo $after_columns_text; ?>	
+		</div>
+<?php } ?>
+		
 	</div>
 </section>

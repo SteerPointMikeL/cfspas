@@ -6,6 +6,11 @@ if ( empty($column_space_distribution) ) $column_space_distribution = '';
 if ( empty($images_position) ) $images_position = 'left';
 if ( empty($content) ) $content = '';
 
+$image_reveal_animations = array(
+	'fadeInDown',
+	'fadeInUp',
+);
+
 ?>
 <section class="layout_block content_with_image content_with_image_style_c <?php echo esc_attr( implode( ' ', $appearance_modifiers ) ); ?> <?php echo esc_attr( $additional_css_classes ); ?> <?php echo esc_attr( $column_space_distribution ); ?>">
 	<div class="wrap">
@@ -17,14 +22,14 @@ if ( empty($content) ) $content = '';
 				
 <?php if ( !empty($images) && is_array($images) && count($images) ) { ?>
 				<div class="images">
-<?php foreach ( $images as $image ) { ?>
-					<?php echo wp_get_attachment_image( $image, 'medium_large', null, array('class' => 'image') ); ?>
+<?php foreach ( $images as $i => $image ) { ?>
+					<?php echo wp_get_attachment_image( $image, 'medium_large', null, array('class' => 'image wow ' . $image_reveal_animations[$i] ) ); ?>
 <?php } ?>
 				</div>
 <?php } ?>
 			</div>
 			
-			<div class="column column-2 column-content">
+			<div class="column column-2 column-content wow <?php echo $images_position === 'right' ? 'fadeInLeft' : 'fadeInRight'; ?>">
 				<?php get_template_part( 'template-parts/section_title', null, array( 'pre_title' => $pre_title, 'title' => $title ) ); ?>
 				
 				<?php echo $content; ?>

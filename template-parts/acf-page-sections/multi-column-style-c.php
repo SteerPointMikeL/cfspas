@@ -9,16 +9,18 @@ if ( empty($columns_per_row) ) $columns_per_row = '2';
 ?>
 <section class="layout_block multi_column_style_c <?php echo esc_attr( implode( ' ', $appearance_modifiers ) ); ?> <?php echo esc_attr( $additional_css_classes ); ?>">
 	<div class="wrap">
-		<?php get_template_part( 'template-parts/section_title', null, array( 'pre_title' => $pre_title, 'title' => $title ) ); ?>
-		
-		<div class="intro_text_outer">
-<?php if ( !empty($intro_text) ) { ?>
-			<div class="intro_text">
-				<?php echo $intro_text; ?>	
-			</div>
-<?php } ?>
+		<div class="intro_container wow fadeInUpSmall">
+			<?php get_template_part( 'template-parts/section_title', null, array( 'pre_title' => $pre_title, 'title' => $title ) ); ?>
 			
-			<?php get_template_part( 'template-parts/buttons', null, array( 'buttons' => array( $button ) ) ); ?>
+			<div class="intro_text_outer">
+<?php if ( !empty($intro_text) ) { ?>
+				<div class="intro_text">
+					<?php echo $intro_text; ?>	
+				</div>
+<?php } ?>
+				
+				<?php get_template_part( 'template-parts/buttons', null, array( 'buttons' => array( $button ) ) ); ?>
+			</div>
 		</div>
 		
 		<div class="columns columns-<?php echo $columns_per_row; ?> columns-top_level">
@@ -47,19 +49,21 @@ if ( !empty($href) ) {
 				</div>
 <?php } ?>
 				
+				<div class="content_container wow fadeInUp">
 <?php if ( !empty( $column['title'] ) ) { ?>
-				<p class="title"><?php echo $column['title']; ?></p>
+					<p class="title"><?php echo $column['title']; ?></p>
 <?php } ?>
-				
+					
 <?php if ( !empty( $column['content'] ) ) { ?>
-				<div class="content">
-					
-					<?php echo $column['content']; ?>
-					
-				</div>
+					<div class="content">
+						
+						<?php echo $column['content']; ?>
+						
+					</div>
 <?php } ?>
-				
-				<?php get_template_part( 'template-parts/buttons', null, array( 'buttons' => array( $column['button'] ) ) ); ?>
+					
+					<?php get_template_part( 'template-parts/buttons', null, array( 'buttons' => array( $column['button'] ) ) ); ?>
+				</div>
 			</div>
 <?php endforeach; ?>
 		</div>

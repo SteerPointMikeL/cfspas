@@ -15,7 +15,7 @@ if ( have_rows( 'hero_standard', $post_id ) ) the_row();
 	<div class="overlay"></div>
 <?php } ?>
 	
-	<div class="wrap">
+	<div class="wrap wow fadeInUpSmall">
 <?php if ( !get_sub_field('hide_title') ) { ?>
 		<h1 class="page_title"><?php echo $hero_title; ?></h1>
 <?php } ?>

@@ -1,14 +1,14 @@
 {
-    "key": "group_6b3a6db9b4465",
-    "title": "Product Type Options",
+    "key": "group_6b024090db640",
+    "title": "Product Brand Options",
     "fields": [
         {
-            "key": "field_6b335c9d2494c",
-            "label": "Singular Name",
-            "name": "singular_name",
+            "key": "field_6b024090dcd86",
+            "label": "Brand Image",
+            "name": "brand_image",
             "aria-label": "",
-            "type": "text",
-            "instructions": "Used in headings such as \"About the Cantabria® Hot Tub\", e.g. \"Hot Tub\".",
+            "type": "image",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -16,12 +16,17 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 1,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0,
+            "preview_size": "medium"
         }
     ],
     "location": [
@@ -29,7 +34,7 @@
             {
                 "param": "taxonomy",
                 "operator": "==",
-                "value": "cfspas_product_type"
+                "value": "cfspas_product_brand"
             }
         ]
     ],
@@ -45,5 +50,5 @@
     "display_title": "",
     "allow_ai_access": 1,
     "ai_description": "",
-    "modified": 1794589417
+    "modified": 1795310008
 }

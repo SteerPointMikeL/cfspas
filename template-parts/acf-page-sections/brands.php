@@ -20,7 +20,7 @@ if ( empty($columns_per_row) ) $columns_per_row = '3';
 <?php foreach ( $columns as $column ) : ?>
 			<div class="column">
 <?php if ( !empty( $column['brand_logo'] ) ) { ?>
-				<p><?php echo wp_get_attachment_image( $column['brand_logo'], 'medium', null, array('alt' => get_sub_field('title'), 'class' => 'brand_logo') ); ?></p>
+				<p><?php echo wp_get_attachment_image( $column['brand_logo'], 'medium', null, array('alt' => get_sub_field('title'), 'class' => 'brand_image') ); ?></p>
 <?php } ?>
 				
 <?php if ( !empty( $column['image'] ) ) { ?>
@@ -30,12 +30,12 @@ if ( empty($columns_per_row) ) $columns_per_row = '3';
 <?php if ( !empty( $column['title'] ) ) { ?>
 				<p class="title"><?php echo $column['title']; ?></p>
 <?php } ?>
-
+				
 <?php if ( !empty( $column['tag_label'] ) ) { ?>
 				<p class="tag_label"><i class="icon-tags"></i> <?php echo $column['tag_label']; ?></p>
 <?php } ?>
 				
-				<?php echo $column['content']; ?>
+				<?php if ( !empty( $column['content'] ) ) echo $column['content']; ?>
 				
 				<?php get_template_part( 'template-parts/buttons', null, array( 'buttons' => array( $column['button'] ) ) ); ?>
 			</div>

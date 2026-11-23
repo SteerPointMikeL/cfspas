@@ -2,9 +2,7 @@
 
 global $h1_already_used;
 
-if ( is_shop() ) {
-	$post_id = get_option('woocommerce_shop_page_id');
-} else if ( is_home() || is_archive() ) {
+if ( ( is_home() || is_archive() ) && !is_singular('cfspas_product') ) {
 	$post_id = get_option('page_for_posts');
 } else {
 	$post_id = get_the_ID(); 
@@ -18,7 +16,7 @@ if ( !empty( get_field('hero_type', $post_id) ) ) {
 	$hero_type = 'standard';
 }
 
-if ( !is_shop() && ( is_post_type_archive() || is_tax() || ( is_singular() && !is_singular( array('page', 'post') ) ) ) ) {
+if ( is_post_type_archive() || is_tax() || ( is_singular() && !is_singular( array('page', 'post', 'cfspas_product') ) ) ) {
 	$obj = get_post_type_object( get_post_type() );
 	$hero_title = $obj->labels->name;
 	if ( is_tax() ) $hero_title .= '&mdash' . single_term_title( null, false );

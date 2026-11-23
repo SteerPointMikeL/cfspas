@@ -1,22 +1,23 @@
 <?php
 
 if ( empty($appearance_modifiers) ) $appearance_modifiers = array();
+if ( empty($appearance_modifiers_more) ) $appearance_modifiers_more = array();
 if ( empty($additional_css_classes) ) $additional_css_classes = '';
 if ( empty($column_space_distribution) ) $column_space_distribution = '';
 if ( empty($image_position) ) $image_position = 'left';
 if ( empty($content) ) $content = '';
 
 ?>
-<section class="layout_block content_with_image_full_width <?php echo esc_attr( implode( ' ', $appearance_modifiers ) ); ?> <?php echo esc_attr( $additional_css_classes ); ?> <?php echo esc_attr( $column_space_distribution ); ?>">
+<section class="layout_block content_with_image content_with_image_style_b <?php echo esc_attr( implode( ' ', array_merge( $appearance_modifiers, $appearance_modifiers_more ) ) ); ?> <?php echo esc_attr( $additional_css_classes ); ?> <?php echo esc_attr( $column_space_distribution ); ?>">
 	<div class="wrap">
 		<div class="columns columns-2 columns-top_level <?php echo esc_attr( $image_position ); ?>">
-			<div class="column column-1 column-image">
+			<div class="column column-1 column-image wow <?php echo $image_position === 'right' ? 'fadeInRight' : 'fadeInLeft'; ?>">
 				
 				<?php echo wp_get_attachment_image( $image, 'medium_large', null, array('class' => 'image') ); ?>
 				
 			</div>
 			
-			<div class="column column-2 column-content"><div class="layer_2">
+			<div class="column column-2 column-content"><div class="layer_2 wow <?php echo $image_position === 'right' ? 'fadeInLeft' : 'fadeInRight'; ?>">
 				<?php get_template_part( 'template-parts/section_title', null, array( 'pre_title' => $pre_title, 'title' => $title ) ); ?>
 				
 				<?php echo $content; ?>

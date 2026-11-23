@@ -6,7 +6,7 @@ if ( empty($content) ) $content = '';
 
 ?>
 <section class="layout_block intro_banner <?php echo esc_attr( implode( ' ', $appearance_modifiers ) ); ?> <?php echo esc_attr( $additional_css_classes ); ?>">
-	<div class="wrap clearfix">
+	<div class="wrap clearfix wow fadeInUpSmall">
 		<?php get_template_part( 'template-parts/section_title', null, array( 'title' => $title ) ); ?>
 		
 		<div class="content">

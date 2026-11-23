@@ -42,7 +42,7 @@ switch ( $video['video_type'] ) {
 <section id="<?php echo $content_with_video_id; ?>" class="layout_block content_with_image content_with_video <?php echo esc_attr( implode( ' ', array_merge($appearance_modifiers, $appearance_modifiers_more) ) ); ?> <?php echo esc_attr( $additional_css_classes ); ?> <?php echo esc_attr( $column_space_distribution ); ?>">
 	<div class="wrap">
 		<div class="columns columns-2 columns-top_level <?php echo esc_attr( $media_position ); ?>">
-			<div class="column column-1 column-image">
+			<div class="column column-1 column-image wow <?php echo $media_position == 'right' ? 'fadeInRight' : 'fadeInLeft'; ?>">
 <?php if ( !empty($title) ) { ?>
 				<p class="section_title responsive"><?php echo $title; ?></p>
 <?php } ?>
@@ -64,7 +64,7 @@ switch ( $video['video_type'] ) {
 				</div>
 			</div>
 			
-			<div class="column column-2 column-content">
+			<div class="column column-2 column-content wow <?php echo $media_position == 'right' ? 'fadeInLeft' : 'fadeInRight'; ?>">
 				<?php get_template_part( 'template-parts/section_title', null, array( 'pre_title' => $pre_title, 'title' => $title ) ); ?>
 				
 				<?php echo $content; ?>

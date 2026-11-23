@@ -7,8 +7,8 @@ if ( empty($buttons) ) return false;
 $class ??= 'sp_button';
 $button_text_format ??= '%s';
 
-// buttons argument is natively an array of button field arrays, but will also accept a single button's fields not wrapped in outer array
-if ( !is_array($buttons) || ( count($buttons) && !is_array( $buttons[0] ) ) ) $buttons = array($buttons);
+// buttons argument is natively an indexed array of button field arrays, but will also accept a single button's fields not wrapped in outer array
+if ( !is_array($buttons) || ( count($buttons) && !array_key_exists( 0, $buttons ) ) ) $buttons = array($buttons);
 
 if ( count($buttons) ) {
 	$alternate = '';
@@ -27,7 +27,7 @@ if ( count($buttons) ) {
 		
 		if ( !empty($href) ) {
 ?>
-			<a href="<?php echo esc_url( $href ); ?>" class="<?php echo $class . $alternate; ?>"><?php printf( $button_text_format, $button['button_text'] ?: __( 'Learn More', SP_TEXT_DOMAIN ) ); ?></a>
+			<a href="<?php echo esc_url( $href ); ?>"<?php if ( !empty($button['link_target'] ) ) { ?> target="<?php echo esc_attr( $button['link_target'][0] ); ?>"<?php } ?> class="<?php echo $class . $alternate; ?>"><?php printf( $button_text_format, $button['button_text'] ?: __( 'Learn More', SP_TEXT_DOMAIN ) ); ?></a>
 <?php
 	}
 	

@@ -2,8 +2,6 @@
 
 if ( empty($images) ) return false;
 
-wp_enqueue_script( 'isotope' );
-
 wp_enqueue_style( 'glightbox' );
 wp_enqueue_script( 'glightbox' );
 
@@ -54,36 +52,36 @@ unset($image); // remove lingering reference in final array field
 			<li class="active"><a href="#" data-filter="*">All</a></li>
 <?php foreach ( $terms as $term ) { ?>
 			<li>
-				<a href="#" data-filter=".isotope-filter-<?php echo esc_attr( $term['slug'] ); ?>"><?php echo esc_html( $term['label'] ); ?></a>
+				<a href="#" data-filter="filter-<?php echo esc_attr( $term['slug'] ); ?>"><?php echo esc_html( $term['label'] ); ?></a>
 			</li>
 <?php } ?>
 		</ul>
 <?php } ?>
 		
-		<div id="<?php echo $image_gallery_id; ?>" class="grid columns-<?php echo $columns_per_row; ?> clearfix">
+		<div id="<?php echo $image_gallery_id; ?>" class="columns columns-<?php echo $columns_per_row; ?> columns-image_gallery">
 <?php
-foreach ( $images as $image ) {
-	$filter_terms = array_map( function($a) { return 'isotope-filter-' . $a['slug']; }, $image['categories_array'] );
+$i = 1; foreach ( $images as $image ) {
+	$filter_terms = array_map( function($a) { return 'filter-' . $a['slug']; }, $image['categories_array'] );
 	
 	$image_url = wp_get_attachment_image_src( $image['image'], 'full' );
 	if ( $image_url ) $image_url = $image_url[0];
 ?>
-			<div class="grid-item <?php echo implode(' ', $filter_terms); ?>">
+			<div id="image-<?php echo $i; ?>" class="column <?php echo implode(' ', $filter_terms); ?>">
 				<?php echo wp_get_attachment_image( $image['image'], 'medium', null, array('class' => 'image') ); ?>
 				
 				<a href="<?php echo $image_url; ?>" class="full_coverage_link glightbox"><?php _e( 'View full size image', SP_TEXT_DOMAIN ); ?></a> 
 			</div>
-<?php } ?>
+<?php $i++; } ?>
 		</div>
 	</div>
 	
 	<script>
 	jQuery(document).ready(function($) {
-		var $imageGallery = $('#<?php echo $image_gallery_id; ?>');
+		var $columns = $('#<?php echo $image_gallery_id; ?> .column');
 		
-		$imageGallery.isotope({
-			itemSelector: '.grid-item',
-			layoutMode: 'fitRows',
+		// allow each column to animate independently from one another by giving each a unique view transition name
+		$columns.each(function() {
+			$(this).css('view-transition-name', $(this).attr('id') );
 		});
 		
 		$('#<?php echo $image_gallery_id; ?>-filters a').click(function(event) {
@@ -94,16 +92,33 @@ foreach ( $images as $image ) {
 			$(this).parent().siblings().removeClass('active');
 			$(this).parent().addClass('active');
 			
-			$imageGallery.isotope({ filter: selector });
+			// fallback for unsupported browsers
+			if (!document.startViewTransition) {
+				applyFilter(selector);
+				
+				return;
+			}
 			
-			<?php /* Note: this fix will need to be adapted from simplelightbox to glightbox
-			// restrict list of images simplelightbox can navigate through to visible items 
-			gallery.initialSelector = '#<?php echo $image_gallery_id; ?> .grid-item'+selector+' .glightbox';
-			gallery.refresh(); */ ?>
+			document.startViewTransition(function() {
+				applyFilter(selector);
+			});
+			
+			function applyFilter(selector) {
+				$columns.each(function() {
+					if (selector === '*' || $(this).hasClass(selector)) {
+						$(this).removeClass('hidden');
+					} else {
+						$(this).addClass('hidden');
+					}
+					
+					// ensure image gallery only contains non-hidden images after filter change
+					imageGallerylLightbox.reload();
+				});
+			}
 		});
 		
 		var imageGallerylLightbox = GLightbox({
-			selector: '#<?php echo $image_gallery_id; ?> .grid-item .glightbox',
+			selector: '#<?php echo $image_gallery_id; ?> .column:not(.hidden) .glightbox',
 		});
 		
 	});

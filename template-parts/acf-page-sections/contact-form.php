@@ -2,6 +2,7 @@
 
 if ( empty($appearance_modifiers) ) $appearance_modifiers = array();
 if ( empty($additional_css_classes) ) $additional_css_classes = '';
+if ( empty($anchor_id) ) $anchor_id = 'form';
 
 if ( empty($show_title) ) {
 	$show_title = 'false';
@@ -18,8 +19,10 @@ if ( empty($show_description) ) {
 ?>
 <section class="layout_block contact_form <?php echo esc_attr( implode( ' ', $appearance_modifiers ) ); ?> <?php echo esc_attr( $additional_css_classes ); ?>">
 	<div class="wrap">
+		<div id="<?php echo $anchor_id; ?>" class="anchor"></div>
+		
 		<div class="columns columns-2 columns-top_level">
-			<div class="column column-content"><div class="layer_2">
+			<div class="column column-content wow fadeInLeft"><div class="layer_2">
 				<?php get_template_part( 'template-parts/section_title', null, array( 'pre_title' => $pre_title, 'title' => $title ) ); ?>
 				
 <?php if ( !empty($intro_text) ) { ?>
@@ -29,7 +32,7 @@ if ( empty($show_description) ) {
 <?php } ?>
 			</div></div>
 			
-			<div class="column column-form">
+			<div class="column column-form wow fadeInRight">
 				<div class="form_container">
 <?php if ( !empty($gravityforms_form_id) ) { ?>
 					<?php echo do_shortcode('[gravityforms id="' . $gravityforms_form_id . '" title="' . $show_title . '" description="' . $show_description . '" ajax=true' . ( !empty($field_values) ? ' field_values="' . esc_attr( $field_values ) . '"' : '' ) . ']'); ?>

@@ -8,7 +8,7 @@ if ( empty($columns_per_row) ) $columns_per_row = '3';
 <section class="layout_block welcome <?php echo esc_attr( implode( ' ', $appearance_modifiers ) ); ?> <?php echo esc_attr( $additional_css_classes ); ?>">
 	<div class="wrap">
 		<div class="columns columns-2 columns-top_level">
-			<div class="column column-title"><div class="layer_2">
+			<div class="column column-title"><div class="layer_2 wow fadeInLeft">
 				<?php get_template_part( 'template-parts/section_title', null, array( 'pre_title' => $pre_title, 'title' => $title ) ); ?>
 				
 <?php if ( !empty($intro_text) ) { ?>
@@ -21,8 +21,8 @@ if ( empty($columns_per_row) ) $columns_per_row = '3';
 			<div class="column column-content">
 <?php if ( !empty($columns) ) { ?>
 				<div class="columns columns-<?php echo $columns_per_row; ?> columns-inner">
-<?php foreach ( $columns as $column ) : ?>
-					<div class="column">
+<?php $i = 0; foreach ( $columns as $column ) : ?>
+					<div class="column wow zoomIn" data-wow-delay="<?php echo $i * 150; ?>ms">
 <?php if ( !empty( $column['icon_css_class'] ) ) { ?>
 						<i class="icon-<?php echo esc_attr( $column['icon_css_class'] ); ?>"></i>
 <?php } ?>
@@ -42,7 +42,7 @@ if ( empty($columns_per_row) ) $columns_per_row = '3';
 						<?php get_template_part( 'template-parts/buttons', null, array( 'buttons' => array( $column['button'] ) ) ); ?>
 						
 					</div>
-<?php endforeach; ?>
+<?php $i++; endforeach; ?>
 				</div>
 			</div>
 <?php } ?>

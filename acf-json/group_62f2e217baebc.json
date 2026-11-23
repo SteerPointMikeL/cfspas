@@ -404,6 +404,13 @@
                 "operator": "!=",
                 "value": "page_-home.php"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "cfspas_product"
+            }
         ]
     ],
     "menu_order": 0,
@@ -418,5 +425,5 @@
     "display_title": "",
     "allow_ai_access": 1,
     "ai_description": "Fields for configuring the appearance of the hero banner that appears on the site's inside pages. The home page uses a separate hero banner with its own associated field group.",
-    "modified": 1790695547
+    "modified": 1795132294
 }

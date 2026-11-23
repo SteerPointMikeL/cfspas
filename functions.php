@@ -112,7 +112,7 @@ function sp_init() {
 	) );
 	
 	// Custom Taxonomy "Collection" for Product Post Type
-	register_taxonomy( 'cfspas_product_collection', array('cfspas_product', 'cfspas_feature'), array(
+	/* register_taxonomy( 'cfspas_product_collection', array('cfspas_product', 'cfspas_feature'), array(
 		'labels' => array(
 			'name'              => _x( 'Collections', 'taxonomy general name', SP_TEXT_DOMAIN ),
 			'singular_name'     => _x( 'Collection', 'taxonomy singular name', SP_TEXT_DOMAIN ),
@@ -129,11 +129,11 @@ function sp_init() {
 		'show_ui'           => true,
 		'show_admin_column' => true,
 		'hierarchical'      => true,
-	) );
+	) ); */
 	
 	
 	// Custom Post Type for Product Feature (shown on single product pages, e.g. "FreshWater® IQ System")
-	register_post_type( 'cfspas_feature', array(
+	/* register_post_type( 'cfspas_feature', array(
 		'labels' => array(
 			'name'               => __( 'Product Features', SP_TEXT_DOMAIN ),
 			'singular_name'      => __( 'Product Feature', SP_TEXT_DOMAIN ),
@@ -150,7 +150,7 @@ function sp_init() {
 		'show_in_menu' => 'edit.php?post_type=cfspas_product',
 		'supports'     => array('title', 'editor', 'thumbnail'),
 		'taxonomies'   => array('cfspas_product_brand', 'cfspas_product_collection'), // for organizing/filtering only
-	) );
+	) ); */
 	
 	
 	// Custom Post Type for Document
@@ -227,7 +227,6 @@ function sp_enqueue_scripts() {
 	
 	wp_register_style( 'owl-carousel', get_template_directory_uri() . '/js/owl.carousel' . $suffix . '.css' );
 	wp_register_style( 'glightbox', get_template_directory_uri().'/js/glightbox' . $suffix . '.css' );
-	wp_register_style( 'lite-youtube-embed', get_template_directory_uri().'/js/lite-yt-embed.css' );
 	
 	wp_enqueue_style( 'googleapis-fonts', '//fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap' );
 	wp_enqueue_style( 'icomoon', get_template_directory_uri() . '/icons/style.css' );
@@ -243,9 +242,6 @@ function sp_enqueue_scripts() {
 	wp_register_script( 'wow', get_template_directory_uri() . '/js/wow' . $suffix . '.js', null, '1.1.2', true );
 	wp_register_script( 'owl-carousel', get_template_directory_uri().'/js/owl.carousel' . $suffix . '.js', array('jquery'), '2.3.4', true );
 	wp_register_script( 'glightbox', get_template_directory_uri().'/js/glightbox' . $suffix . '.js', null, '1.1.2', true );
-	wp_register_script( 'isotope', get_template_directory_uri().'/js/isotope.pkgd' . $suffix . '.js', null, '3.0.6', true );
-	wp_register_script( 'lite-youtube-embed', get_template_directory_uri() . '/js/lite-yt-embed.js', null, '0.3.3', true );
-	wp_register_script( 'lite-vimeo', get_template_directory_uri().'/js/lite-vimeo' . $suffix . '.js', null, '0.1.1', true );
 	
 	wp_enqueue_script( SP_TEXT_DOMAIN.'-script', get_template_directory_uri().'/js/functions.js', array('jquery', 'js-cookie', 'jquery-modal', 'wow'), null, true );
 }

@@ -7,7 +7,7 @@ if ( empty($columns_per_row) ) $columns_per_row = '3';
 ?>
 <div class="layout_block video_grid <?php echo esc_attr( implode( ' ', $appearance_modifiers ) ); ?> <?php echo esc_attr( $additional_css_classes ); ?>">
 	<div class="wrap">
-		<?php get_template_part( 'template-parts/section_title', null, array( 'title' => $title ) ); ?>
+		<?php get_template_part( 'template-parts/section_title', null, array( 'pre_title' => $pre_title, 'title' => $title ) ); ?>
 		
 <?php if ( !empty($intro_text) ) { ?>
 		<div class="intro_text">
@@ -26,8 +26,7 @@ if ( empty($columns_per_row) ) $columns_per_row = '3';
 <?php } ?>
 		</div>
 <?php } ?>
-
+		
 		<?php get_template_part( 'template-parts/buttons', null, array( 'buttons' => $buttons ) ); ?>
 	</div>
 </div>
-

@@ -1,14 +1,7 @@
 <?php
-/**
- * Grid of product cards, with optional filter tabs (by collection, brand or type).
- *
- * Called from sp_render_product_grid(). $args:
- *   args     - normalized grid arguments (see sp_get_product_grid_defaults())
- *   products - WP_Query of cfspas_product posts
- */
 
 $grid_args = $args['args'];
-$products = $args['products'];
+$products  = $args['products'];
 
 if ( !$products->have_posts() ) {
 	if ( !empty( $grid_args['empty_message'] ) ) {
@@ -18,86 +11,74 @@ if ( !$products->have_posts() ) {
 </div>
 <?php
 	}
-
+	
 	return;
 }
 
-$columns = min( 6, max( 1, intval( $grid_args['columns'] ) ?: 3 ) );
-$grid_id = wp_unique_id( 'product_grid-' );
-
-// filter tabs
-$filter_taxonomies = array(
-	'collection' => 'cfspas_product_collection',
-	'brand'      => 'cfspas_product_brand',
-	'type'       => 'cfspas_product_type',
-);
-$filter_taxonomy = $filter_taxonomies[ $grid_args['filter_by'] ] ?? '';
-$filter_terms = array();
-
-if ( $filter_taxonomy ) {
-	foreach ( $products->posts as $product ) {
-		foreach ( sp_get_product_terms( $product->ID, $filter_taxonomy ) as $term ) {
-			$filter_terms[ $term->slug ] = $term;
-		}
-	}
-
-	// filters only make sense with more than one option
-	if ( count( $filter_terms ) < 2 ) $filter_terms = array();
-}
-
-if ( $filter_terms ) wp_enqueue_script( 'isotope' );
+$columns_per_row = min( 6, max( 1, intval( $grid_args['columns'] ) ?: 3 ) );
 
 ?>
-<div id="<?php echo $grid_id; ?>" class="product_grid <?php echo esc_attr( $grid_args['class'] ); ?>">
-<?php if ( $filter_terms ) { ?>
-	<ul class="filters">
-		<li class="active"><a href="#" data-filter="*"><?php _e( 'All', SP_TEXT_DOMAIN ); ?></a></li>
-<?php foreach ( $filter_terms as $term ) { ?>
-		<li><a href="#" data-filter=".isotope-filter-<?php echo esc_attr( $term->slug ); ?>"><?php echo esc_html( $term->name ); ?></a></li>
-<?php } ?>
-	</ul>
-<?php } ?>
-
-	<div class="columns columns-<?php echo $columns; ?> columns-products">
+<div class="product_grid <?php echo esc_attr( $grid_args['class'] ); ?>">
+	<div class="columns columns-<?php echo $columns_per_row; ?> columns-products">
+<?php while ( $products->have_posts() ) : $products->the_post(); ?>
+		<div class="column">
+			<article id="product-<?php echo get_the_ID(); ?>" class="product_card">
 <?php
-while ( $products->have_posts() ) : $products->the_post();
-	$classes = array( 'column' );
-
-	if ( $filter_terms ) {
-		foreach ( sp_get_product_terms( get_the_ID(), $filter_taxonomy ) as $term ) {
-			$classes[] = 'isotope-filter-' . $term->slug;
-		}
-	}
+	$brand_image_id = sp_get_product_brand_image_id();
+	if ( $brand_image_id ) {
 ?>
-		<div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
-			<?php get_template_part( 'template-parts/product-card', null, array(
-				'button_text'  => $grid_args['button_text'],
-				'show_details' => $grid_args['show_details'],
-				'show_logo'    => $grid_args['show_logo'],
-			) ); ?>
+				<?php echo wp_get_attachment_image( $brand_image_id, 'medium', null, array('class' => 'image brand_image') ); ?>
+<?php } ?>
+		
+<?php
+	$header_fields = get_field('header');
+	if ( !empty( $header_fields['image'] ) ) {
+?>
+				<?php echo wp_get_attachment_image( $header_fields['image'], 'medium', null, array('class' => 'image') ); ?>
+<?php } ?>
+				
+				<p class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
+				
+				<div class="details">
+<?php
+$category = sp_get_the_terms_children_first( get_the_ID(), 'cfspas_product_brand' );
+if ( !is_wp_error($category) ) {
+?>
+					<p class="category"><i class="icon-tags"></i> <?php echo $category[0]->name; ?></p>
+<?php } ?>
+					
+<?php
+	$specifications_fields = get_field('specifications_section');
+	if ( !empty( $specifications_fields['specifications'] ) && is_array( $specifications_fields['specifications'] ) && count( $specifications_fields['specifications'] ) ) {
+?>
+					<ul class="specifications">
+<?php
+	foreach ( $specifications_fields['specifications'] as $s ) {
+		if ( !$s['card_visibility'] ) continue;
+		
+		$icon_css_class = !empty( $s['icon_css_class'] ) ? $s['icon_css_class'] : sp_guess_icon_from_name( $s['name'] );
+?>
+						<li>
+<?php if ( $icon_css_class ) { ?>
+							<i class="icon-<?php echo esc_attr( $icon_css_class ); ?>"></i>
+<?php } ?>
+							
+							<?php echo $s['value']; ?>
+						</li>
+<?php } ?>
+					</ul>
+<?php } ?>
+				</div>
+				
+				<?php
+				get_template_part( 'template-parts/buttons', null, array( 'buttons' => array(
+					'button_text' => __( 'View Details', SP_TEXT_DOMAIN ),
+					'link_type'   => 'url',
+					'url'         => get_the_permalink()
+				) ) );
+				?>
+			</article>
 		</div>
 <?php endwhile; ?>
 	</div>
-
-<?php if ( $filter_terms ) { ?>
-	<script>
-	jQuery(document).ready(function($) {
-		var $grid = $('#<?php echo $grid_id; ?> .columns-products');
-
-		$grid.isotope({
-			itemSelector: '.column',
-			layoutMode: 'fitRows',
-			percentPosition: true,
-		});
-
-		$('#<?php echo $grid_id; ?> .filters a').on('click', function(event) {
-			event.preventDefault();
-
-			$(this).parent().addClass('active').siblings().removeClass('active');
-
-			$grid.isotope({ filter: $(this).attr('data-filter') });
-		});
-	});
-	</script>
-<?php } ?>
 </div>

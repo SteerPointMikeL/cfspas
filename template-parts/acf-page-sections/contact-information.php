@@ -21,8 +21,8 @@ $social_media_links = get_field( 'social_media_links', 'option');
 <?php } ?>
 		
 		<div class="columns columns-<?php echo $columns_per_row; ?> columns-top_level">
-<?php foreach ( $columns as $column ) : ?>
-			<div class="column">
+<?php foreach ( $columns as $i => $column ) : ?>
+			<div class="column wow fadeInUpSmall" data-wow-delay="<?php echo $i * 150; ?>ms">
 				<div class="title_container">
 <?php if ( !empty( $column['icon_css_class'] ) ) { ?>
 					<p><i class="icon-<?php echo esc_attr( $column['icon_css_class'] ); ?>"></i></p>
@@ -45,7 +45,7 @@ $social_media_links = get_field( 'social_media_links', 'option');
 		</div>
 		
 <?php if ( !empty($social_media_links) && is_array($social_media_links) && count($social_media_links) ) { ?>
-		<div class="social_media">
+		<div class="social_media wow fadeInRight" data-wow-delay="500ms">
 			<p class="title">Follow Us:</p>
 			
 			<ul>

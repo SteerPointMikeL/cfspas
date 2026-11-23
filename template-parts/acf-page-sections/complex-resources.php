@@ -6,28 +6,30 @@ if ( empty($intro_text) ) $intro_text = '';
 if ( empty($content) ) $content = '';
 
 ?>
-<section class="layout_block complex_resources <?php echo esc_attr( implode( ' ', $appearance_modifiers ) ); ?> <?php echo esc_attr( $additional_css_classes ); ?> <?php echo esc_attr( $column_space_distribution ); ?>">
+<section class="layout_block complex_resources <?php echo esc_attr( implode( ' ', $appearance_modifiers ) ); ?> <?php echo esc_attr( $additional_css_classes ); ?>">
 	<div class="wrap">
-		<?php get_template_part( 'template-parts/section_title', null, array( 'title' => $intro_title ) ); ?>
-		
-		<div class="intro_text_outer">
-			<div class="intro_text">
-				<?php echo $intro_text; ?>
-			</div>
+		<div class="wow fadeInUpSmall">
+			<?php get_template_part( 'template-parts/section_title', null, array( 'title' => $intro_title ) ); ?>
 			
-			<?php get_template_part( 'template-parts/buttons', null, array( 'buttons' => array( $button ) ) ); ?>
+			<div class="intro_text_outer">
+				<div class="intro_text">
+					<?php echo $intro_text; ?>
+				</div>
+				
+				<?php get_template_part( 'template-parts/buttons', null, array( 'buttons' => array( $button ) ) ); ?>
+			</div>
 		</div>
 	</div>
 	
 	<div class="wrap columns_wrap">
 		<?php get_template_part('template-parts/video', null, array( 'video' => $video ) ); ?>
 		
-		<div class="columns columns-2 columns-top_level <?php echo esc_attr( $media_position ); ?>">
+		<div class="columns columns-2 columns-top_level">
 			<div class="column column-1 column-images">
 <?php if ( !empty($images) && is_array($images) && count($images) ) { ?>
 				<div class="columns columns-2 columns-inner">
-<?php foreach ( $images as $image ) { ?>
-					<div class="column">
+<?php foreach ( $images as $i => $image ) { ?>
+					<div class="column wow fadeInUpSmall" data-wow-delay="<?php echo $i * 150; ?>ms">
 						<?php echo wp_get_attachment_image( $image, 'medium', null, array('class' => 'image') ); ?>
 					</div>
 <?php } ?>
@@ -35,7 +37,7 @@ if ( empty($content) ) $content = '';
 <?php } ?>
 			</div>
 			
-			<div class="column column-2 column-content">
+			<div class="column column-2 column-content wow fadeInRight">
 				<?php get_template_part( 'template-parts/section_title', null, array( 'pre_title' => $pre_title, 'title' => $title ) ); ?>
 				
 				<?php echo $content; ?>
